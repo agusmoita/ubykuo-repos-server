@@ -1,0 +1,3 @@
+search:
+    path: /search
+    controller: App\Controller\ApiController::search
