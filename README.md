@@ -6,6 +6,15 @@
 composer install
 ```
 
+## Configurar Acceso a GitHub
+
+- Crear archivo .env.local
+- Agregar token
+
+```
+GITHUB_TOKEN=myToken
+```
+
 ## Iniciar servidor
 
 ```bash

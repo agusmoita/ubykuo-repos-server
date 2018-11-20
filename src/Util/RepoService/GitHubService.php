@@ -10,7 +10,6 @@ use App\Util\GraphQLClient;
 class GitHubService implements RepoServiceInterface
 {
 	const ENDPOINT = 'https://api.github.com/graphql';
-	const TOKEN = '11eb8db6bf7f7784fc4e0f53c5bc5f7e6342ead5';
 
 	public function search(string $q): array
 	{
@@ -33,10 +32,11 @@ class GitHubService implements RepoServiceInterface
 		';
 
 		$variables = ['q' => $q];
+		$token = getenv('GITHUB_TOKEN');
 
 		$graphql = new GraphQLClient(self::ENDPOINT);
 
-		$response = $graphql->query($query, $variables, self::TOKEN);
+		$response = $graphql->query($query, $variables, $token);
 
 	    return $this->toJson($response);
 	}
